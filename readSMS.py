@@ -7,6 +7,11 @@ import serial
 import os, time, sys
 import datetime
 
+
+
+os.system('vcgencmd display_power 0') #Turn off HDMI signal
+
+
 #def setup():
     #GPIO.setmode(GPIO.BCM)
     #GPIO.setwarnings(False)
@@ -18,27 +23,39 @@ SERIAL_PORT = "/dev/ttyS0"    # Rasp 3 UART Port
 
 ser = serial.Serial(SERIAL_PORT, baudrate = 9600, timeout = 5)
 #setup()
+##ser.write('AT'+'\r\n')
+##time.sleep(10)
 ser.write('AT+CMGF=1'+'\r\n') # set to text mode
 time.sleep(1)
 ser.write('AT+CMGDA="DEL ALL"\n') # delete all SMS
 time.sleep(1)
+
+#os.system('vcgencmd display_power 0') #Turn off HDMI signal
+def lastPart(str,i):
+    l=str.split('\n',20)
+    return l[i]
 reply = ser.read(ser.inWaiting()) # Clean buf
 print ("Listening for incomming SMS...")
 while True:
     reply = ser.read(ser.inWaiting())
     if reply != "":
-		ser.write('AT'+'\r\n')
-		time.sleep(5)
-		ser.write('AT+CMGF=1'+'\r\n') # set to text mode
-        #time.sleep(1)
+
+
         ser.write("AT+CMGR=1\n") 
         time.sleep(1)
         reply = ser.read(ser.inWaiting())
         print("SMS received. Content:")
         print(reply)
-        command='python3 monitor.py --message "'+reply+'"'
+##        for p in range(6):
+##            lala=lastPart(reply,p)
+##            print(lala+str(p))
+
+        reply=lastPart(reply,4)
+        os.system('vcgencmd display_power 1') #Turn on HDMI signal
+        time.sleep(1)
+        command='python3 monitor.py --message \''+reply+'\' --time 5'
         os.system(command)
-	
+	os.system('vcgencmd display_power 0') #Turn off HDMI signal
  	#if "ON" in reply.upper():
 	    #if "LED1" in reply.upper():
                 #print "LED 1 ON"
@@ -75,3 +92,4 @@ while True:
         time.sleep(.500)
         ser.read(ser.inWaiting()) # Clear buffer
         time.sleep(.500)  
+os.system('vcgencmd display_power 1') #Turn on HDMI signal

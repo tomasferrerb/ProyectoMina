@@ -9,9 +9,6 @@ import datetime
 
 
 
-#os.system('vcgencmd display_power 0') #Turn off HDMI signal
-
-
 #def setup():
     #GPIO.setmode(GPIO.BCM)
     #GPIO.setwarnings(False)
@@ -30,15 +27,9 @@ time.sleep(1)
 ser.write('AT+CMGDA="DEL ALL"\n') # delete all SMS
 time.sleep(1)
 
-#os.system('vcgencmd display_power 0') #Turn off HDMI signal
 def lastPart(str,i):
     l=str.split('\n',20)
     return l[i]
-
-def lastPartSet(str,i):
-    l=str.split(',',20)
-    return l[i]
-
 reply = ser.read(ser.inWaiting()) # Clean buf
 print ("Listening for incomming SMS...")
 while True:
@@ -56,21 +47,9 @@ while True:
 ##            print(lala+str(p))
 
         reply=lastPart(reply,4)
-        msg=lastPartSet(reply,0)
-        clr=lastPartSet(reply,1)
-                        
-        print(msg)
-        print(clr)
-        #os.system('vcgencmd display_power 1') #Turn on HDMI signal
         time.sleep(1)
-        if(clr.find('green')):
-            command='python3 monitor.py --message \''+msg+'\' --color green'
-        if(clr.find('red')):
-            command='python3 monitor.py --message \''+msg+'\' --color blue'
-        if(clr.find('blue')):
-            command='python3 monitor.py --message \''+msg+'\' --color red'
+        command='python3 displayLed.py --message \''+reply+'\''
         os.system(command)
-	#os.system('vcgencmd display_power 0') #Turn off HDMI signal
  	#if "ON" in reply.upper():
 	    #if "LED1" in reply.upper():
                 #print "LED 1 ON"
@@ -107,4 +86,3 @@ while True:
         time.sleep(.500)
         ser.read(ser.inWaiting()) # Clear buffer
         time.sleep(.500)  
-#os.system('vcgencmd display_power 1') #Turn on HDMI signal no pasa al final

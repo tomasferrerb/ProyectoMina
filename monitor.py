@@ -19,6 +19,7 @@ def makeWindow(msg,color,time):
 	root.attributes('-fullscreen', True)
 	#root.bind('Esc', lambda e: root.quit())
 	root.after(time*1000, lambda: root.destroy())
+	#root.after(time*1000, lambda: salir())
 	root.mainloop()
 
 

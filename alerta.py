@@ -31,7 +31,8 @@ image2a = PhotoImage(file="boton2a.png")
 image2b = PhotoImage(file="boton2b.png")
 image2c = PhotoImage(file="boton2c.png")
 
-title="Título"
+title1="TORMENTA DE VIENTO"
+title2="TORMENTA ELÉCTRICA"
 msgini="¿Está seguro que quiere mostrar el siguiente mensaje en las pantallas: '"
 msgfin="'?"
 msg1a="USO OBLIGATORIO DE BARBIQUEJO PROTECCION VISUAL HERMETICA"
@@ -47,19 +48,16 @@ labelfont= ('arial', 24, 'bold')
 
 
 l1=Label(master, text="ALERTA DE TORMENTA DE VIENTO",bg="white",font=labelfont).place(relx=0.5,rely=0.1,anchor=CENTER)
-boton1a = Button(master,bg="white",bd=0,image=image1a,command=lambda:accion(title,msgini+msg1a+msgfin)).place(relx=0.17, rely=0.3, anchor=CENTER)
-boton1b = Button(master,bg="white",bd=0,image=image1b,command=lambda: accion(title,msgini+msg1b+msgfin)).place(relx=0.5, rely=0.3, anchor=CENTER)
-boton1c = Button(master,bg="white",bd=0,image=image1c ,command=lambda:accion(title,msgini+msg1c+msgfin)).place(relx=0.83, rely=0.3, anchor=CENTER)
+boton1a = Button(master,	bg="white",	bd=0,	image=image1a,	command=lambda:accion(title1,msgini+msg1a+msgfin)).place(relx=0.17, rely=0.3, anchor=CENTER)
+boton1b = Button(master,	bg="white",	bd=0,	image=image1b,	command=lambda: accion(title1,msgini+msg1b+msgfin)).place(relx=0.5, rely=0.3, anchor=CENTER)
+boton1c = Button(master,	bg="white",	bd=0,	image=image1c ,	command=lambda:accion(title1,msgini+msg1c+msgfin)).place(relx=0.83, rely=0.3, anchor=CENTER)
 
 
 
-l2=Label(master,text="ALERTA DE TORMENTA ELÉCTRICA",bg="white",font=labelfont).place(relx=0.5,rely=0.5,anchor=CENTER)
-boton2a = Button(master,image=image2a,bg="white",bd=0,command=lambda:accion(title,msgini+msg2a+msgfin)).place(relx=0.17, rely=0.7, anchor=CENTER)
-boton2b = Button(master, image=image2b, bg="white",bd=0,command=lambda:accion(title,msgini+msg2b+msgfin)).place(relx=0.5, rely=0.7, anchor=CENTER)
-boton2c = Button(master,image=image2c,bg="white",bd=0,command=lambda:accion(title,msgini+msg3c+msgfin)).place(relx=0.83, rely=0.7, anchor=CENTER)
+l2=Label(master,	text="ALERTA DE TORMENTA ELÉCTRICA",	bg="white",	font=labelfont).place(relx=0.5,rely=0.5,anchor=CENTER)
+boton2a = Button(master,	image=image2a,	bg="white",	bd=0,	command=lambda:accion(title2,msgini+msg2a+msgfin)).place(relx=0.17, rely=0.7, anchor=CENTER)
+boton2b = Button(master,	image=image2b,	bg="white",	bd=0,	command=lambda:accion(title2,msgini+msg2b+msgfin)).place(relx=0.5, rely=0.7, anchor=CENTER)
+boton2c = Button(master,	image=image2c,	bg="white",	bd=0,	command=lambda:accion(title2,msgini+msg2c+msgfin)).place(relx=0.83, rely=0.7, anchor=CENTER)
 
 
 master.mainloop()
-
-
- 

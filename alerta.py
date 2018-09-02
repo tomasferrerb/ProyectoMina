@@ -27,17 +27,20 @@ def main():
 	image12.zoom(scale_w, scale_h)
 	image13.zoom(scale_w, scale_h)
 
-	l1=Label(master, text="ALERTA DE TORMENTA DE VIENTO",bg="white").place(relx=0.5,rely=0.1,anchor=CENTER)
-	boton11 = Button(master, text="Alerta de Tormenta de Viento",image=image11,bg="white",command=master.quit).place(relx=0.17, rely=0.3, anchor=CENTER)
-	boton12 = Button(master, text="Alerta de Tormenta Eléctrica",bg="white",image=image12,command=accion).place(relx=0.5, rely=0.3, anchor=CENTER)
-	boton13 = Button(master, text="Alerta de Tormenta Eléctrica2",bg="white",image=image13 ).place(relx=0.83, rely=0.3, anchor=CENTER)
+	labelfont= ('arial', 24, 'bold')
+
+
+	l1=Label(master, text="ALERTA DE TORMENTA DE VIENTO",bg="white",font=labelfont).place(relx=0.5,rely=0.1,anchor=CENTER)
+	boton11 = Button(master,bg="white",bd=0,image=image11,command=master.quit).place(relx=0.17, rely=0.3, anchor=CENTER)
+	boton12 = Button(master,bg="white",bd=0,image=image12,command=accion).place(relx=0.5, rely=0.3, anchor=CENTER)
+	boton13 = Button(master,bg="white",bd=0,image=image13 ).place(relx=0.83, rely=0.3, anchor=CENTER)
 
 
 
-	l2=Label(master,text="ALERTA DE TORMENTA ELÉCTRICA").place(relx=0.5,rely=0.5,anchor=CENTER)
-	boton21 = Button(master, text="Alerta de Tormenta de Viento",image=image11,bg="white",bd=0,command=master.quit).place(relx=0.17, rely=0.7, anchor=CENTER)
-	boton22 = Button(master, text="Alerta de Tormenta Eléctrica", image=image11, bg="white",bd=0,command=accion).place(relx=0.5, rely=0.7, anchor=CENTER)
-	boton23 = Button(master, text="Alerta de Tormenta Eléctrica2",image=image11,bg="white",bd=0).place(relx=0.83, rely=0.7, anchor=CENTER)
+	l2=Label(master,text="ALERTA DE TORMENTA ELÉCTRICA",bg="white",font=labelfont).place(relx=0.5,rely=0.5,anchor=CENTER)
+	boton21 = Button(master,image=image11,bg="white",bd=0,command=master.quit).place(relx=0.17, rely=0.7, anchor=CENTER)
+	boton22 = Button(master, image=image11, bg="white",bd=0,command=accion).place(relx=0.5, rely=0.7, anchor=CENTER)
+	boton23 = Button(master,image=image11,bg="white",bd=0).place(relx=0.83, rely=0.7, anchor=CENTER)
 
 
 	master.mainloop()

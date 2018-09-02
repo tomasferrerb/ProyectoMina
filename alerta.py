@@ -17,9 +17,9 @@ def main():
 	#a=0.25*A   #variacion x
 	#b=0.3*B   #variacion y
 	master.configure(background='white')
-	image11 = PhotoImage(file="boton11.png")
-	image12 = PhotoImage(file="boton12.png")
-	image13 = PhotoImage(file="boton13.png")
+	image11 = PhotoImage(file="boton1a.png")
+	image12 = PhotoImage(file="boton1a.png")
+	image13 = PhotoImage(file="boton1a.png")
 
 	scale_w = 1
 	scale_h = 1
@@ -35,9 +35,9 @@ def main():
 
 
 	l2=Label(master,text="ALERTA DE TORMENTA ELÉCTRICA").place(relx=0.5,rely=0.5,anchor=CENTER)
-	boton21 = Button(master, text="Alerta de Tormenta de Viento",image=image11,bg="white",bd=0,command=master.quit).place(relx=0.3, rely=0.7, anchor=CENTER)
-	boton22 = Button(master, text="Alerta de Tormenta Eléctrica", command=accion).place(relx=0.5, rely=0.7, anchor=CENTER)
-	boton23 = Button(master, text="Alerta de Tormenta Eléctrica2",bg="white").place(relx=0.7, rely=0.7, anchor=CENTER)
+	boton21 = Button(master, text="Alerta de Tormenta de Viento",image=image11,bg="white",bd=0,command=master.quit).place(relx=0.17, rely=0.7, anchor=CENTER)
+	boton22 = Button(master, text="Alerta de Tormenta Eléctrica", image=image11, bg="white",bd=0,command=accion).place(relx=0.5, rely=0.7, anchor=CENTER)
+	boton23 = Button(master, text="Alerta de Tormenta Eléctrica2",image=image11,bg="white",bd=0).place(relx=0.83, rely=0.7, anchor=CENTER)
 
 
 	master.mainloop()

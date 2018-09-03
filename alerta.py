@@ -21,13 +21,13 @@ master.attributes('-fullscreen', True)
 master.configure(background='white')
 
 ###IMAGENES DE BOTONES###
-image1a = PhotoImage(file="boton1a.png")
-image1b = PhotoImage(file="boton1b.png")
-image1c = PhotoImage(file="boton1c.png")
+image1a = PhotoImage(file="/home/pi/Documents/ProyectoMina/boton1a.png")
+image1b = PhotoImage(file="/home/pi/Documents/ProyectoMina/boton1b.png")
+image1c = PhotoImage(file="/home/pi/Documents/ProyectoMina/boton1c.png")
 
-image2a = PhotoImage(file="boton2a.png")
-image2b = PhotoImage(file="boton2b.png")
-image2c = PhotoImage(file="boton2c.png")
+image2a = PhotoImage(file="/home/pi/Documents/ProyectoMina/boton2a.png")
+image2b = PhotoImage(file="/home/pi/Documents/ProyectoMina/boton2b.png")
+image2c = PhotoImage(file="/home/pi/Documents/ProyectoMina/boton2c.png")
 ##########################
 #####COMANDOS A EJECUTAR##############
 a="echo lala"

@@ -22,18 +22,18 @@ def SendMessage(number, txt):
   ser.write('AT+CMGF=1'+'\r\n') # set to text mode
   time.sleep(1)
 
-  ser.write('AT+CMGDA="DEL ALL"\n') # delete all SMS
+  ser.write('AT+CMGDA="DEL ALL"\r\n') # delete all SMS
   time.sleep(1)
 
 
-  ser.write("AT+CMGS=\"" + number + "\"\r") #Mobile phone number to send message
+  ser.write("AT+CMGS=" + number + "\r\n") #Mobile phone number to send message
   time.sleep(1)
   
-  ser.write(txt);
+  ser.write(txt+'\r\n');
   time.sleep(.500)
   
 
-  ser.write(str(unichr(26)))
+  ser.write(str(unichr(26))+'\r\n')
   #ser.write((char)26)  #ASCII code of CTRL+Z
   time.sleep(1)
   

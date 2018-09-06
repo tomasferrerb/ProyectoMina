@@ -18,15 +18,9 @@ def SendMessage(number, txt):
   ser = serial.Serial(SERIAL_PORT, baudrate = 9600, timeout = 5)
   time.sleep(8)
   
-  ser.write('AT \r\n')
-  time.sleep(1)
-  reply = ser.read(ser.inWaiting())
-  print(reply)
-
   ser.write('AT+CMGF=1'+'\r\n') # set to text mode
   time.sleep(1)
-  reply1 = ser.read(ser.inWaiting())
-  print(reply1)
+
 
   ser.write('AT+CMGDA="DEL ALL"\r\n') # delete all SMS
   time.sleep(1)

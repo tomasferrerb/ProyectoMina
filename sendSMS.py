@@ -33,7 +33,7 @@ def SendMessage(number, txt):
   time.sleep(.500)
   
 
-  ser.write(unichr(26))
+  ser.write('\r\n')
   #ser.write((char)26)  #ASCII code of CTRL+Z
   time.sleep(1)
   

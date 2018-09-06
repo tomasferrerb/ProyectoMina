@@ -19,14 +19,6 @@ ser.write('AT+CMGDA="DEL ALL"\n') # delete all SMS
 time.sleep(1)
 
 
-def lastPart(str,i):
-    l=str.split('\n',20)
-    return l[i]
-
-def lastPartSet(str,i):
-    l=str.split(',',20)
-    return l[i]
-
 reply = ser.read(ser.inWaiting()) # Clean buf
 print ("Listening for incomming SMS...")
 while True:
@@ -38,18 +30,10 @@ while True:
         time.sleep(1)
         reply = ser.read(ser.inWaiting())
         print("SMS received. Content:")
-        print(reply)
 
-
-       # reply=lastPart(reply,4)
-       # msg=lastPartSet(reply,0)
-       # clr=lastPartSet(reply,1)
-                        
         print(reply)
-        #print(clr)
 
         time.sleep(1)
-
         
         time.sleep(.500)
         ser.write('AT+CMGDA="DEL ALL"\n') # delete all

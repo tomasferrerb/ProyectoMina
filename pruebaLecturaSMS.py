@@ -45,10 +45,11 @@ while True:
         msg=lastPartSet(reply,0)
         clr=lastPartSet(reply,1)
                         
-        print(msg)
+        os.system("echo "+msg)
         print(clr)
 
         time.sleep(1)
+
         
         time.sleep(.500)
         ser.write('AT+CMGDA="DEL ALL"\n') # delete all

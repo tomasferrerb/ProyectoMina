@@ -46,7 +46,7 @@ while True:
        # clr=lastPartSet(reply,1)
                         
         os.system("echo '"+reply+'"')
-        print(clr)
+        #print(clr)
 
         time.sleep(1)
 

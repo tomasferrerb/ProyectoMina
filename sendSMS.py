@@ -26,7 +26,7 @@ def SendMessage(number, txt):
   time.sleep(1)
 
 
-  ser.write("AT+CMGS=" + number + "\r\n") #Mobile phone number to send message
+  ser.write('AT+CMGS= " ' + number + '"\r\n') #Mobile phone number to send message
   time.sleep(1)
   
   ser.write(txt+'\r\n');

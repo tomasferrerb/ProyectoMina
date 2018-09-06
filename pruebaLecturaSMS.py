@@ -41,11 +41,11 @@ while True:
         print(reply)
 
 
-        reply=lastPart(reply,4)
-        msg=lastPartSet(reply,0)
-        clr=lastPartSet(reply,1)
+       # reply=lastPart(reply,4)
+       # msg=lastPartSet(reply,0)
+       # clr=lastPartSet(reply,1)
                         
-        os.system("echo "+msg)
+        os.system("echo '"+reply+'"')
         print(clr)
 
         time.sleep(1)

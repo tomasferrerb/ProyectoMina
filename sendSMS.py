@@ -32,7 +32,9 @@ def SendMessage(number, txt):
   ser.write(txt);
   time.sleep(.500)
   
-  ser.write((char)26)  #ASCII code of CTRL+Z
+
+  ser.write(unichr(26))
+  #ser.write((char)26)  #ASCII code of CTRL+Z
   time.sleep(1)
   
 

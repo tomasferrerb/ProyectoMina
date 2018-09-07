@@ -26,21 +26,14 @@ def SendMessage(number, txt):
   time.sleep(1)
 
 
-  ser.write('AT+CMGS= " ' + number + '"\r\n') #Mobile phone number to send message
-  time.sleep(1)
-  reply2 = ser.read(ser.inWaiting())
-  print(reply2)
+  ser.write('AT+CMGS="' + number + '"\r\n') #Mobile phone number to send message
+  time.sleep(3)
 
-
-  ser.write(txt+'\r\n');
-  time.sleep(.500)
-  
-
-  ser.write(str(unichr(26))+'\r\n')
-  #ser.write((char)26)  #ASCII code of CTRL+Z
-
+  print('Sending SMS:' + txt)
+  ser.write(txt+chr(26)'\r\n');  #ser.write((char)26)  #ASCII code of CTRL+Z
   time.sleep(1)
   
+ 
 
 
 

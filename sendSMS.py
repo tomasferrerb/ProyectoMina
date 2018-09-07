@@ -21,6 +21,8 @@ def SendMessage(number, txt):
   ser.write('AT+CMGF=1'+'\r\n') # set to text mode
   time.sleep(1)
 
+  reply1 = ser.read(ser.inWaiting())
+  print(reply1)
 
   ser.write('AT+CMGDA="DEL ALL"\r\n') # delete all SMS
   time.sleep(1)
@@ -28,6 +30,16 @@ def SendMessage(number, txt):
 
   ser.write('AT+CMGS="' + number + '"\r\n') #Mobile phone number to send message
   time.sleep(3)
+
+  reply2 = ser.read(ser.inWaiting())
+  print(reply2)
+
+
+
+  
+
+  # revisar este link https://bytes.com/topic/python/answers/696448-how-write-ctrl-z-serial-port
+
 
   print('Sending SMS:' + txt)
   ser.write(txt+chr(26)'\r\n');  #ser.write((char)26)  #ASCII code of CTRL+Z

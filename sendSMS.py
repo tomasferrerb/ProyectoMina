@@ -42,7 +42,7 @@ def SendMessage(number, txt):
 
 
   print('Sending SMS:' + txt)
-  ser.write(txt+chr(26)'\r\n');  #ser.write((char)26)  #ASCII code of CTRL+Z
+  ser.write(txt+chr(26)+'\r\n');  #ser.write((char)26)  #ASCII code of CTRL+Z
   time.sleep(1)
   
  

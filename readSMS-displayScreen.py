@@ -18,7 +18,7 @@ time.sleep(1)
 ser.write('AT+CMGDA="DEL ALL"\n') # delete all SMS
 time.sleep(1)
 
-#os.system('vcgencmd display_power 0') #Turn off HDMI signal
+os.system('vcgencmd display_power 0') #Turn off HDMI signal
 def lastPart(str,i):
     l=str.split('\n',20)
     return l[i]
@@ -49,7 +49,7 @@ while True:
                         
         print(msg)
         print(clr)
-        #os.system('vcgencmd display_power 1') #Turn on HDMI signal
+        os.system('vcgencmd display_power 1') #Turn on HDMI signal
         time.sleep(1)
         if '1a' in msg:
             command='python3 displayScreen --imagen 1a'

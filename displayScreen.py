@@ -14,11 +14,10 @@ def displayScreen(opt):
 	master.attributes('-fullscreen', True)
 	master.configure(background='white')
 	nombre = "boton" + opt +".png"
-	print(nombre)
 
 ###IMAGENES A MOSTRAR###
 	imagen = PhotoImage(file=nombre)
-
+	imagen=imagen.zoom(4, 4)
 	
 	boton1a = Button(master,bg="white",bd=0,text='X',command=lambda:master.quit()).place(relx=0.1, rely=0.9, anchor=CENTER)
         

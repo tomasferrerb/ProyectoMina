@@ -31,14 +31,14 @@ image2b = PhotoImage(file="/home/pi/Documents/ProyectoMina/boton2b.png")
 image2c = PhotoImage(file="/home/pi/Documents/ProyectoMina/boton2c.png")
 ##########################
 #####COMANDOS A EJECUTAR##############
-a="echo lala"
-command1a=a
-command1b=a
-command1c=a
+a="sudo sendSMS.py --number '+56979017964' --txt "
+command1a=a+'1a'
+command1b=a+'1b'
+command1c=a+'1c'
 
-command2a=a
-command2b=a
-command2c=a
+command2a=a+'2a'
+command2b=a+'2b'
+command2c=a+'2c'
 
 ###TITULOS DE VENTANAS EMERGENTES##########3
 title1="TORMENTA DE VIENTO"

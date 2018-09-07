@@ -38,6 +38,7 @@ def SendMessage(number, txt):
 
   ser.write(str(unichr(26))+'\r\n')
   #ser.write((char)26)  #ASCII code of CTRL+Z
+  # revisar este link https://bytes.com/topic/python/answers/696448-how-write-ctrl-z-serial-port
 
   time.sleep(1)
   

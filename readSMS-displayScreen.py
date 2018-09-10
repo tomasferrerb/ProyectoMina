@@ -28,13 +28,19 @@ def lastPartSet(str,i):
     l=str.split(',',20)
     return l[i]
 
-def cualOpcion(str):   
-    tmp=''"
-    opciones=['1a', '1b', '1c', '2a','2b','2c']
-    for i in opciones: 
-        if i in msg:
-            tmp=i
-            return tmp
+def cualOpcion(str): 
+    if 'password' in str:  
+        tmp=''
+        opciones=['1a', '1b', '1c', '2a','2b','2c']
+        for i in opciones: 
+            if i in msg:
+                tmp=i
+                return tmp
+
+
+#######PASSWORD#####
+###contraseña=password
+
 
 reply = ser.read(ser.inWaiting()) # Clean buf
 print ("Listening for incomming SMS...")

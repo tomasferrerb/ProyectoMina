@@ -40,7 +40,7 @@ def SendMessage(number, txt):
 
   # revisar este link https://bytes.com/topic/python/answers/696448-how-write-ctrl-z-serial-port
 
-
+  txt='password - '+txt
   print('Sending SMS:' + txt)
   ser.write(txt+chr(26)+'\r\n');  #ser.write((char)26)  #ASCII code of CTRL+Z
   time.sleep(1)

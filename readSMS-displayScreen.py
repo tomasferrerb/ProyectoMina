@@ -29,7 +29,7 @@ def lastPartSet(str,i):
     return l[i]
 
 def cualOpcion(str):   
-    tmp=''
+    tmp=''"
     opciones=['1a', '1b', '1c', '2a','2b','2c']
     for i in opciones: 
         if i in msg:

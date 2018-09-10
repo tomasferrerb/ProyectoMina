@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 import os
 import argparse
-
+import time
 
 
 def displayScreen(opt):
@@ -13,17 +13,18 @@ def displayScreen(opt):
 	#master.geometry("{0}x{1}+0+0".format(A,B))
 	master.attributes('-fullscreen', True)
 	master.configure(background='white')
-	nombre = "boton" + opt +".png"
-
+	nombre = "/home/pi/Documents/ProyectoMina/boton"+ opt +".png"
+	print(opt)
+	print(nombre)
 ###IMAGENES A MOSTRAR###
 	imagen = PhotoImage(file=nombre)
 	imagen=imagen.zoom(4, 4)
 	
 	boton1a = Button(master,bg="white",bd=0,text='X',command=lambda:master.quit()).place(relx=0.1, rely=0.9, anchor=CENTER)
         
-
+	tiempo=5 #tiempo de mustra en segundos
 	l1=Label(master, image=imagen,bg="white").place(relx=0.5,rely=0.5,anchor=CENTER)
-
+	master.after(tiempo*1000, lambda: master.destroy())
 	master.mainloop()
 
 

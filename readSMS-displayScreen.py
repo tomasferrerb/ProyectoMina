@@ -19,6 +19,7 @@ ser.write('AT+CMGDA="DEL ALL"\n') # delete all SMS
 time.sleep(1)
 
 os.system('vcgencmd display_power 0') #Turn off HDMI signal
+
 def lastPart(str,i):
     l=str.split('\n',20)
     return l[i]
@@ -26,6 +27,14 @@ def lastPart(str,i):
 def lastPartSet(str,i):
     l=str.split(',',20)
     return l[i]
+
+def cualOpcion(str):   
+    tmp=''
+    opciones=['1a', '1b', '1c', '2a','2b','2c']
+    for i in opciones: 
+        if i in msg:
+            tmp=i
+            return tmp
 
 reply = ser.read(ser.inWaiting()) # Clean buf
 print ("Listening for incomming SMS...")
@@ -43,29 +52,17 @@ while True:
 ##            lala=lastPart(reply,p)
 ##            print(lala+str(p))
 
-        reply=lastPart(reply,4)
-        msg=lastPartSet(reply,0)
-        clr=lastPartSet(reply,1)
-                        
+        msg=lastPart(reply,4)
         print(msg)
-        print(clr)
         os.system('vcgencmd display_power 1') #Turn on HDMI signal
         time.sleep(1)
-        if '1a' in msg:
-            command='python3 displayScreen --imagen 1a'
-        if '1b' in msg:
-            command='python3 displayScreen --imagen 1b'
-        if '1c' in msg:
-            command='python3 displayScreen --imagen 1c'
 
-        if '2a' in msg:
-            command='python3 displayScreen --imagen 2a'
-        if '2b' in msg:
-            command='python3 displayScreen --imagen 2b'
-        if '2c' in msg:
-            command='python3 displayScreen --imagen 2c'
+        tmp=elegirOpcion(msg)
+        
+        command='python3 /home/pi/Documents/ProyectoMina/displayScreen.py --imagen '+tmp
+ 
         os.system(command)
-
+        os.system('vcgencmd display_power 0') #Turn off HDMI signal
         
         time.sleep(.500)
         ser.write('AT+CMGDA="DEL ALL"\n') # delete all

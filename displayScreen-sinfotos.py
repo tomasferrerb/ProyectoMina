@@ -10,7 +10,7 @@ def displayScreen(opt):
 	master = Tk()
 	A=master.winfo_screenwidth()
 	B=master.winfo_screenheight()
-	master.geometry("100x100+10+186")
+	master.geometry("150x150+10+150")
 	#master.attributes('-fullscreen', True)
 	
 	if 'a' in opt:
@@ -21,7 +21,7 @@ def displayScreen(opt):
 		color='red'   
 	tiempo=5 #tiempo de mustra en segundos
 	master.configure(background=color)
-	l1=Label(master, text=opt,fg="black", font=(None,20),bg=color).place(relx=0.5,rely=0.5,anchor=CENTER)
+	l1=Label(master, text=opt,fg="black", font=(None,40),bg=color).place(relx=0.5,rely=0.5,anchor=CENTER)
 	master.after(tiempo*1000, lambda: master.destroy())
 	master.mainloop()
 

@@ -10,21 +10,18 @@ def displayScreen(opt):
 	master = Tk()
 	A=master.winfo_screenwidth()
 	B=master.winfo_screenheight()
-	master.geometry("96x96")
+	master.geometry("100x100+10+186")
 	#master.attributes('-fullscreen', True)
-	master.configure(background='white')
-	nombre = "/home/pi/Documents/ProyectoMina/boton"+ opt +".png"
-	nombre="boton"+ opt +".png"######PARA PROBAR NO EN LA RASPBERRY
-	print(opt)
-	print(nombre)
-###IMAGENES A MOSTRAR###
-	imagen = PhotoImage(file=nombre)
-	imagen=imagen.zoom(4, 4)
 	
-	boton1a = Button(master,bg="white",bd=0,text='X',command=lambda:master.quit()).place(relx=0.1, rely=0.9, anchor=CENTER)
-        
+	if 'a' in opt:
+		color='blue' 
+	if 'b' in opt: 
+		color='yellow' 
+	if 'c' in opt: 
+		color='red'   
 	tiempo=5 #tiempo de mustra en segundos
-	l1=Label(master, image=imagen,bg="white").place(relx=0.5,rely=0.5,anchor=CENTER)
+	master.configure(background=color)
+	l1=Label(master, text=opt,fg="black", font=(None,20),bg=color).place(relx=0.5,rely=0.5,anchor=CENTER)
 	master.after(tiempo*1000, lambda: master.destroy())
 	master.mainloop()
 

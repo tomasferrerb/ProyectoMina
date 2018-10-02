@@ -7,7 +7,7 @@ def accion(title,msg,command):
     MsgBox = messagebox.askquestion (title,msg,icon = 'warning')
     if MsgBox == 'yes':
        os.system(command)   #Desplegar mensaje en pantalla
-       master.quit()
+       #master.quit()
        #root.destroy()
     #else:
         #messagebox.showinfo('Return','You will now return to the application screen')

@@ -10,7 +10,7 @@ def displayScreen(opt):
 	master = Tk()
 	A=master.winfo_screenwidth()
 	B=master.winfo_screenheight()
-	master.geometry("100x100+8+150")
+	master.geometry("100x100+8+153")
 	#master.attributes('-fullscreen', True)
 	sizefont=8
 	fgcolor="white"

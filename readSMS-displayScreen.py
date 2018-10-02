@@ -39,7 +39,7 @@ def cualOpcion(str):
 
 
 #######PASSWORD#####
-###contraseña=password
+###contrasenia=password
 
 
 reply = ser.read(ser.inWaiting()) # Clean buf

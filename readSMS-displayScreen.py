@@ -63,7 +63,7 @@ while True:
         os.system('vcgencmd display_power 1') #Turn on HDMI signal
         time.sleep(1)
 
-        tmp=elegirOpcion(msg)
+        tmp=cualOpcion(msg)
         
         command='python3 /home/pi/Documents/ProyectoMina/displayScreen-sinfotos.py --imagen '+tmp
  

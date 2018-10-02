@@ -36,7 +36,7 @@ def cualOpcion(str):
             if i in msg:
                 tmp=i
                 return tmp
-
+    return 'no sms' #
 
 #######PASSWORD#####
 ###contrasenia=password
@@ -60,19 +60,20 @@ while True:
 
         msg=lastPart(reply,4)
         print(msg)
-        os.system('vcgencmd display_power 1') #Turn on HDMI signal
-        time.sleep(1)
+        tmp=cualOpcion(msg)		
+		if (tmp != 'no sms'):
+		    os.system('vcgencmd display_power 1') #Turn on HDMI signal
+		    time.sleep(1)
 
-        tmp=cualOpcion(msg)
-        
-        command='python3 /home/pi/Documents/ProyectoMina/displayScreen-sinfotos.py --imagen '+tmp
- 
-        os.system(command)
-        os.system('vcgencmd display_power 0') #Turn off HDMI signal
-        
-        time.sleep(.500)
-        ser.write('AT+CMGDA="DEL ALL"\n') # delete all
-        time.sleep(.500)
-        ser.read(ser.inWaiting()) # Clear buffer
-        time.sleep(.500)  
+		    
+		    command='python3 /home/pi/Documents/ProyectoMina/displayScreen-sinfotos.py --imagen '+tmp
+	 
+		    os.system(command)
+		    os.system('vcgencmd display_power 0') #Turn off HDMI signal
+		    
+	    time.sleep(.500)
+	    ser.write('AT+CMGDA="DEL ALL"\n') # delete all
+	    time.sleep(.500)
+	    ser.read(ser.inWaiting()) # Clear buffer
+	    time.sleep(.500)  
 #os.system('vcgencmd display_power 1') #Turn on HDMI signal no pasa al final

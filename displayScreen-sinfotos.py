@@ -12,23 +12,37 @@ def displayScreen(opt):
 	B=master.winfo_screenheight()
 	master.geometry("100x100+8+150")
 	#master.attributes('-fullscreen', True)
+	sizefont=8
 	fgcolor="white"
 	if '1a' == opt:
 		color='blue'
-		txt='PERSONAL EN  \n ESTADO DE \n ALERTA \n  Prohibición de \n ingreso  de visitas \n y proveedores' 
+		sizefont=8
+		txt='USO OBLIGATORIO\n DE BARBIQUEJO \nPROTECCION\n VISUAL \nHERMETICA'
 	if '1b' == opt: 
 		color='yellow' 
+		sizefont=8
+		fgcolor="black"
+		txt='PERMITIDO \nCIRCULAR \nSOLO PERSONAL \nAUTORIZADO'
 	if '1c' == opt: 
 		color='red'  
+		sizefont=7
+		txt='PROHIBICION DE \nCIRCULAR \nPEATONES Y \nVEHICULOS\n(Todos refugiados)\n SOLO AUTORIZADOS\n VEHICULOS DE \nEMERGENCIA  '
 	if '2a' == opt:
 		color='blue' 
+		sizefont=7
+		txt='PERSONAL EN  \n ESTADO DE \n ALERTA \n  Prohibición de \n ingreso  de \nvisitas  y \nproveedores' 		
 	if '2b' == opt: 
 		color='yellow' 
+		sizefont=7
+		fgcolor="black"
+		txt='RESTRICCION DE LA\n CIRCULACION DE\n PEATONES\n   PERMITIDO \nCIRCULAR\n SOLO VEHICULOS\n AUTORIZADOS'
 	if '2c' == opt: 
-		color='red'   
-	tiempo=5 #tiempo de mustra en segundos
+		color='red'
+		sizefont=7
+		txt='PROHIBICION\n ABSOLUTA DE\n CIRCULAR PEATONES\n Y VEHICULOS\n(Todos refugiados)\n  SOLO AUTORIZADOS\n VEHICULOS DE\n EMERGENCIA '   
+	tiempo=10 #tiempo de mustra en segundos
 	master.configure(background=color)
-	l1=Label(master, text=txt,fg=fgcolor, font=(None,7),bg=color).place(relx=0.5,rely=0.5,anchor=CENTER)
+	l1=Label(master, text=txt,fg=fgcolor, font=(None,sizefont),bg=color).place(relx=0.5,rely=0.5,anchor=CENTER)
 	master.after(tiempo*1000, lambda: master.destroy())
 	master.mainloop()
 

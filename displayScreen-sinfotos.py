@@ -10,7 +10,7 @@ def displayScreen(opt):
 	master = Tk()
 	A=master.winfo_screenwidth()
 	B=master.winfo_screenheight()
-	master.geometry("96x96+8+150")
+	master.geometry("100x100+8+150")
 	#master.attributes('-fullscreen', True)
 	
 	if 'a' in opt:

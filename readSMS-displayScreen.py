@@ -65,7 +65,7 @@ while True:
 
         tmp=elegirOpcion(msg)
         
-        command='python3 /home/pi/Documents/ProyectoMina/displayScreen.py --imagen '+tmp
+        command='python3 /home/pi/Documents/ProyectoMina/displayScreen-sinfotos.py --imagen '+tmp
  
         os.system(command)
         os.system('vcgencmd display_power 0') #Turn off HDMI signal

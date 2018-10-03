@@ -31,10 +31,11 @@ image2b = PhotoImage(file="/home/pi/Documents/ProyectoMina/boton2b.png")
 image2c = PhotoImage(file="/home/pi/Documents/ProyectoMina/boton2c.png")
 ##########################
 #####COMANDOS A EJECUTAR##############
-a="sudo python sendSMS.py --number '+56959557124' --txt "
+a="sudo python sendSMS.py --number '+56957881440' --txt "
 #+56976425035 alexis
 #+56979017964 sim claro
 #+56959557124 sim claro 2
+#+56957881440 sim entel 
 
 command1a=a+'1a'
 command1b=a+'1b'

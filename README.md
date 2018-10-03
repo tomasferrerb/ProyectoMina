@@ -10,8 +10,11 @@ Link configuración: http://www.electronicwings.com/raspberry-pi/raspberry-pi-ua
 
 Link conexiones: https://www.connectedcities.com.ph/blogs/tutorial/sim800l-and-raspberry-pi-3-b-controlled-3-led-tutorial
 
-
 link envio y  recibo: http://miliohm.com/sim800l-arduino-tutorial/
+
+link Script autostart: https://jackbarber.co.uk/blog/2017-03-02-automatically-run-a-python-script-at-boot-in-raspbian
+
+link sleeptime: http://chamaras.blogspot.com/2013/03/how-to-deactivate-monitor-sleep-in.html
 
 
 Indice de archivos:
@@ -33,3 +36,5 @@ readSMS.py : lee SMS y ejecuta un comando
 readSMSled.py : lee SMS y ejecuta displayLed.py
 
 sendSMS.py : Envía un SMS con alguna opción de los mensajes de alerta. 
+
+

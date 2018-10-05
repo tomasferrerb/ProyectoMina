@@ -18,7 +18,7 @@ time.sleep(1)
 ser.write('AT+CMGDA="DEL ALL"\n') # delete all SMS
 time.sleep(1)
 
-os.system('vcgencmd display_power 0') #Turn off HDMI signal
+#os.system('vcgencmd display_power 0') #Turn off HDMI signal
 
 def lastPart(str,i):
     l=str.split('\n',20)
@@ -62,13 +62,13 @@ while True:
         print(msg)
         tmp=cualOpcion(msg)		
         if (tmp != 'no sms'):
-            os.system('vcgencmd display_power 1') #Turn on HDMI signal
+           # os.system('vcgencmd display_power 1') #Turn on HDMI signal
             time.sleep(1)
     
             command='python3 /home/pi/Documents/ProyectoMina/displayScreen-sinfotos.py --imagen '+tmp
 	 
             os.system(command)
-            os.system('vcgencmd display_power 0') #Turn off HDMI signal
+            #os.system('vcgencmd display_power 0') #Turn off HDMI signal
 		    
         time.sleep(.500)
         ser.write('AT+CMGDA="DEL ALL"\n') # delete all

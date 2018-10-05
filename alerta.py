@@ -35,7 +35,7 @@ a="sudo python sendSMS.py --number '+56957881440' --txt "
 #+56976425035 alexis
 #+56979017964 sim claro
 #+56959557124 sim claro 2
-#+56957881440 sim entel 
+#+56957881440 sim entel este si
 
 command1a=a+'1a'
 command1b=a+'1b'

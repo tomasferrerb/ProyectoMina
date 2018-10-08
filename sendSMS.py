@@ -4,19 +4,13 @@ import os, time, sys
 import datetime
 import argparse
 
-
-
-
-
 ##ser.write('AT'+'\r\n')
 ##time.sleep(10)
-
-
 
 def SendMessage(number, txt):
   SERIAL_PORT = "/dev/ttyS0"    # Rasp 3 UART Port
   ser = serial.Serial(SERIAL_PORT, baudrate = 9600, timeout = 5)
-  time.sleep(8)
+  #time.sleep(8)
   
   ser.write('AT+CMGF=1'+'\r\n') # set to text mode
   time.sleep(1)
@@ -44,12 +38,6 @@ def SendMessage(number, txt):
   print('Sending SMS:' + txt)
   ser.write(txt+chr(26)+'\r\n');  #ser.write((char)26)  #ASCII code of CTRL+Z
   time.sleep(1)
-  
- 
-
-
-
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='code to send a SMS',

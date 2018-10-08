@@ -1,7 +1,9 @@
 #! /usr/bin/env python
 from tkinter import *
 from tkinter import messagebox
-import os
+
+import serial
+import os, time, sys
 
 def accion(title,msg,command):
     MsgBox = messagebox.askquestion (title,msg,icon = 'warning')
@@ -12,6 +14,11 @@ def accion(title,msg,command):
     #else:
         #messagebox.showinfo('Return','You will now return to the application screen')
      #   print("chao")
+SERIAL_PORT = "/dev/ttyS0"    # Rasp 3 UART Port
+ser = serial.Serial(SERIAL_PORT, baudrate = 9600, timeout = 5)
+time.sleep(8)
+ser.write("AT \r\n".encode())
+time.sleep(2)
 
 
 master = Tk()

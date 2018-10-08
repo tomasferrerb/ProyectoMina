@@ -38,3 +38,13 @@ readSMSled.py : lee SMS y ejecuta displayLed.py
 sendSMS.py : Envía un SMS con alguna opción de los mensajes de alerta. 
 
 
+agregar las siguientes lineas para comenzar con el programa al reiniciar:
+
+Para estación de control:
+/home/pi/.conf/lxsession/LXDE-pi/autostart
+
+escribir lo siguiente:
+@sudo python3 /home/pi/Documents/ProyectoMina/alerta.py
+
+
+

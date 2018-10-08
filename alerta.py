@@ -1,9 +1,8 @@
-#! /usr/bin/env python
-from tkinter import *
-from tkinter import messagebox
-
 import serial
 import os, time, sys
+
+from tkinter import *
+from tkinter import messagebox
 
 def accion(title,msg,command):
     MsgBox = messagebox.askquestion (title,msg,icon = 'warning')
@@ -14,12 +13,12 @@ def accion(title,msg,command):
     #else:
         #messagebox.showinfo('Return','You will now return to the application screen')
      #   print("chao")
+
 SERIAL_PORT = "/dev/ttyS0"    # Rasp 3 UART Port
 ser = serial.Serial(SERIAL_PORT, baudrate = 9600, timeout = 5)
-time.sleep(8)
+time.sleep(2)
 ser.write("AT \r\n".encode())
 time.sleep(2)
-
 
 master = Tk()
 A=master.winfo_screenwidth()
@@ -38,7 +37,7 @@ image2b = PhotoImage(file="/home/pi/Documents/ProyectoMina/boton2b.png")
 image2c = PhotoImage(file="/home/pi/Documents/ProyectoMina/boton2c.png")
 ##########################
 #####COMANDOS A EJECUTAR##############
-a="sudo python sendSMS.py --number '+56957881440' --txt "
+a="sudo python /home/pi/Documents/ProyectoMina/sendSMS.py --number '+56957881440' --txt "
 #+56976425035 alexis
 #+56979017964 sim claro
 #+56959557124 sim claro 2

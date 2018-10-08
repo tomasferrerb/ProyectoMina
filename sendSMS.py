@@ -10,7 +10,7 @@ import argparse
 def SendMessage(number, txt):
   SERIAL_PORT = "/dev/ttyS0"    # Rasp 3 UART Port
   ser = serial.Serial(SERIAL_PORT, baudrate = 9600, timeout = 5)
-  #time.sleep(8)
+  time.sleep(1)
   
   ser.write('AT+CMGF=1'+'\r\n') # set to text mode
   time.sleep(1)

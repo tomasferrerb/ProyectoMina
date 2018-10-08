@@ -46,5 +46,13 @@ Para estación de control:
 escribir lo siguiente:
 @sudo python3 /home/pi/Documents/ProyectoMina/alerta.py
 
+Para RPi en pantalla: 
+/home/pi/.conf/lxsession/LXDE-pi/autostart
 
+escribir lo siguiente:
+@sudo python /home/pi/Documents/ProyectoMina/readSMS.py
 
+y para que no se suspenda escribir en el siguiente archivo:
+sudo geany /etc/xdg/lxsession/LXDE-pi/autostart
+
+@xset -dpms

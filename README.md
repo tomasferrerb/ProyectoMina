@@ -52,7 +52,7 @@ Para RPi en pantalla:
 escribir lo siguiente:
 @sudo python /home/pi/Documents/ProyectoMina/readSMS.py
 
-y para que no se suspenda escribir en el siguiente archivo:
-sudo geany /etc/xdg/lxsession/LXDE-pi/autostart
+y para que no se suspenda se instala el software xscreensaver
 
-@xset -dpms
+para modificar configuracion de video visitar:
+https://www.raspberrypi.org/documentation/configuration/config-txt/video.md

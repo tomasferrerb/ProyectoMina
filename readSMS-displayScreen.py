@@ -80,7 +80,7 @@ while True:
 	 
             os.system(command)
             #os.system('vcgencmd display_power 0') #Turn off HDMI signal
-		else: print('Format error')    
+        else: print('Format error')    
         time.sleep(.500)
         ser.write('AT+CMGDA="DEL ALL"\n') # delete all
         time.sleep(.500)

@@ -21,11 +21,11 @@ time.sleep(1)
 #os.system('vcgencmd display_power 0') #Turn off HDMI signal
 
 def lastPart(str,i):
-    l=str.split('\n',20)
+    l=str.split('\n',50)
     return l[i]
 
-def lastPartSet(str,i):
-    l=str.split(',',20)
+def extraerCampo(str,i):
+    l=str.split('-',50)
     return l[i]
 
 def cualOpcion(str): 
@@ -40,11 +40,14 @@ def cualOpcion(str):
 
 #######PASSWORD#####
 ###contrasenia=password
-
+#    0      1     2
+##password-opt-tiempo
 
 reply = ser.read(ser.inWaiting()) # Clean buf
 print ("Listening for incomming SMS...")
 while True:
+    msg=''
+    tiempo=0
     reply = ser.read(ser.inWaiting())
     if reply != "":
 
@@ -54,22 +57,30 @@ while True:
         reply = ser.read(ser.inWaiting())
         print("SMS received. Content:")
         print(reply)
-##        for p in range(6):
-##            lala=lastPart(reply,p)
-##            print(lala+str(p))
-
-        msg=lastPart(reply,4)
+        
+        try:
+        	msg=lastPart(reply,4) #contenido de texto es la 5ta linea del SMS
+        except: 
+			print('Wrong SMS')
         print(msg)
-        tmp=cualOpcion(msg)		
-        if (tmp != 'no sms'):
+        
+        
+        tmp=cualOpcion(msg)	#identificar opcion de SMS 
+        try:
+            tiempo=int(extraerCampo(msg,2)) #el campo 2 es el de tiempo
+        except:
+            print('time is not an integer')
+            tiempo='time error'
+        print(tiempo)
+        if ((tmp != 'no sms') and isintance(tiempo, int)):
            # os.system('vcgencmd display_power 1') #Turn on HDMI signal
             time.sleep(1)
     
-            command='python3 /home/pi/Documents/ProyectoMina/displayScreen-sinfotos.py --imagen '+tmp
+            command='python3 /home/pi/Documents/ProyectoMina/displayScreen-sinfotos.py --imagen '+tmp+ ' --tiempo '+str(tiempo)
 	 
             os.system(command)
             #os.system('vcgencmd display_power 0') #Turn off HDMI signal
-		    
+		else: print('Format error')    
         time.sleep(.500)
         ser.write('AT+CMGDA="DEL ALL"\n') # delete all
         time.sleep(.500)

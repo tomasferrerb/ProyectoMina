@@ -72,7 +72,7 @@ while True:
             print('time is not an integer')
             tiempo='time error'
         print(tiempo)
-        if ((tmp != 'no sms') and isintance(tiempo, int)):
+        if ((tmp != 'no sms') and isinstance(tiempo, int)):
            # os.system('vcgencmd display_power 1') #Turn on HDMI signal
             time.sleep(1)
     

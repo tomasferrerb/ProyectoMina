@@ -30,31 +30,29 @@ def apagarSMS():
 	reply = ser.read(ser.inWaiting()) # Clean buf
 	print ("Listening for incomming SMS...")
 	while True:
-	    msg=''
-	    tiempo=0
-	    reply = ser.read(ser.inWaiting())
-	    if reply != "":
-
-
-		ser.write("AT+CMGR=1\n") 
-		time.sleep(1)
+		msg=''
+		tiempo=0
 		reply = ser.read(ser.inWaiting())
-		print("SMS received. Content:")
-		print(reply)
-		
-		try:
-			msg=lastPart(reply,4) #contenido de texto es la 5ta linea del SMS
-		except: 
-			print('Wrong SMS')
-		print(msg)
-		
-		if 'password-apagar' in msg:
-			master.destroy()
-		time.sleep(.500)
-		ser.write('AT+CMGDA="DEL ALL"\n') # delete all
-		time.sleep(.500)
-		ser.read(ser.inWaiting()) # Clear buffer
-		time.sleep(.500)
+		if reply != "":
+			ser.write("AT+CMGR=1\n") 
+			time.sleep(1)
+			reply = ser.read(ser.inWaiting())
+			print("SMS received. Content:")
+			print(reply)
+			
+			try:
+				msg=lastPart(reply,4) #contenido de texto es la 5ta linea del SMS
+			except: 
+				print('Wrong SMS')
+			print(msg)
+			
+			if 'password-apagar' in msg:
+				master.destroy()
+			time.sleep(.500)
+			ser.write('AT+CMGDA="DEL ALL"\n') # delete all
+			time.sleep(.500)
+			ser.read(ser.inWaiting()) # Clear buffer
+			time.sleep(.500)
 
 def displayScreen(opt, tiempo):
 

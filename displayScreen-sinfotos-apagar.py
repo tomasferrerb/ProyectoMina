@@ -58,8 +58,8 @@ def apagarSMS():
 
 def displayScreen(opt, tiempo):
 
-	A=master.winfo_screenwidth()
-	B=master.winfo_screenheight()
+	#A=master.winfo_screenwidth()
+	#B=master.winfo_screenheight()
 	master.geometry("100x100+8+153")
 	#master.attributes('-fullscreen', True)
 	sizefont=6

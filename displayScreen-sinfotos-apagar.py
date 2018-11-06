@@ -49,7 +49,7 @@ def apagarSMS():
 			
 			if 'password-apagar' in msg:
 				prendido=False
-				master.destroy()
+				master.quit()
 			time.sleep(.500)
 			ser.write('AT+CMGDA="DEL ALL"\n') # delete all
 			time.sleep(.500)
@@ -97,7 +97,7 @@ def displayScreen(opt, tiempo):
 	l1=Label(master, text=txt,fg=fgcolor, font=(None,sizefont),bg=color).place(relx=0.5,rely=0.5,anchor=CENTER)
 	master.after(int(1000), lambda: apagarSMS())
 	master.mainloop()
-
+	master.destroy()
 
 
 

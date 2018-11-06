@@ -99,28 +99,9 @@ def displayScreen(opt, tiempo):
 	l1=Label(master, text=txt,fg=fgcolor, font=(None,sizefont),bg=color).place(relx=0.5,rely=0.5,anchor=CENTER)
 	#master.after(int(1000), lambda: apagarSMS())
 	apagarSMS()
-	if destroy: master.quit()
+	if destroy: master.destroy()
 	master.mainloop()
-	master.destroy()
-
-
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='mostrar imagen en pantalla completa',
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument('--imagen', type=str,help='seleccionar imagen, opciones: 1a, 1b, 1c, 2a, 2b, 2c')
-    parser.add_argument('--tiempo', type=float,help='tiempo en horas que se quiere mostrar alerta')
-
-
-    args = parser.parse_args()
-
-    try:
-        displayScreen(args.imagen, args.tiempo)
-    except KeyboardInterrupt:
-        pass
-
-
+	
 
 
 

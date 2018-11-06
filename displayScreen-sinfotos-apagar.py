@@ -1,5 +1,5 @@
-from tkinter import *
-from tkinter import messagebox
+from Tkinter import *
+#from tkinter import messagebox
 import argparse
 import serial
 import os, time, sys
@@ -61,9 +61,9 @@ def displayScreen(opt, tiempo):
 	master.geometry("100x100+8+153")
 	#master.attributes('-fullscreen', True)
 	sizefont=6
-	fgcolor="white"
-	ATV='TORMENTA DE VIENTO \n'
-	ATE='TORMENTA ELÉCTRICA \n'
+	fgcolor='white'
+	ATV="TORMENTA DE VIENTO \n"
+	ATE="TORMENTA ELECTRICA \n"
 	if '1a' == opt:
 		color='blue'
 		sizefont=6
@@ -80,7 +80,7 @@ def displayScreen(opt, tiempo):
 	if '2a' == opt:
 		color='blue' 
 		#sizefont=7
-		txt=ATE+'PERSONAL EN  \n ESTADO DE \n ALERTA \n  Prohibición de \n ingreso  de \nvisitas  y \nproveedores' 		
+		txt=ATE+'PERSONAL EN  \n ESTADO DE \n ALERTA \n  Prohibicion de \n ingreso  de \nvisitas  y \nproveedores' 		
 	if '2b' == opt: 
 		color='yellow' 
 		#sizefont=7
@@ -123,13 +123,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='mostrar imagen en pantalla completa',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('--imagen', type=str,help='seleccionar imagen, opciones: 1a, 1b, 1c, 2a, 2b, 2c')
-
+    parser.add_argument('--tiempo', type=float,help='tiempo en horas que se quiere mostrar alerta')
 
 
     args = parser.parse_args()
 
     try:
-        displayScreen(args.imagen)
+        displayScreen(args.imagen, args.tiempo)
     except KeyboardInterrupt:
         pass
 

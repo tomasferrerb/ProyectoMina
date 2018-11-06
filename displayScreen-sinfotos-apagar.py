@@ -101,7 +101,7 @@ def displayScreen(opt, tiempo):
 	#apagarSMS()
 	#if destroy: master.destroy()
 
-	while destroy:#replace of master.mainloop()
+	while !destroy:#replace of master.mainloop()
 		#if destroy: master.destroy()
 		master.update_idletasks()
 		master.update()

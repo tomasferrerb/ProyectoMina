@@ -93,7 +93,7 @@ def displayScreen(opt, tiempo):
 	 
 	master.configure(background=color)
 	l1=Label(master, text=txt,fg=fgcolor, font=(None,sizefont),bg=color).place(relx=0.5,rely=0.5,anchor=CENTER)
-	master.after(int(tiempo*1000*60*60), lambda: master.destroy())
+	master.after(int(1000), lambda: apagarSMS())
 	master.mainloop()
 
 

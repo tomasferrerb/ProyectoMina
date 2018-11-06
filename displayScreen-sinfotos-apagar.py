@@ -97,10 +97,15 @@ def displayScreen(opt, tiempo):
 	 
 	master.configure(background=color)
 	l1=Label(master, text=txt,fg=fgcolor, font=(None,sizefont),bg=color).place(relx=0.5,rely=0.5,anchor=CENTER)
-	#master.after(int(1000), lambda: apagarSMS())
-	apagarSMS()
-	if destroy: master.destroy()
-	master.mainloop()
+	master.after(int(1000), lambda: apagarSMS())
+	#apagarSMS()
+	#if destroy: master.destroy()
+
+	while True:#replace of master.mainloop()
+		if destroy: master.destroy()
+		master.update_idletasks()
+		
+		master.update()
 	
 
 

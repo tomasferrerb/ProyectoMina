@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 #from tkinter import messagebox
 import argparse
 import serial
@@ -23,9 +23,9 @@ def apagarSMS():
 	#setup()
 	##ser.write('AT'+'\r\n')
 	##time.sleep(10)
-	ser.write('AT+CMGF=1'+'\r\n') # set to text mode
+	ser.write(('AT+CMGF=1'+'\r\n').encode('utf-8')) # set to text mode
 	time.sleep(1)
-	ser.write('AT+CMGDA="DEL ALL"\n') # delete all SMS
+	ser.write(('AT+CMGDA="DEL ALL"\n').encode('utf-8')) # delete all SMS
 	time.sleep(1)
 	reply = ser.read(ser.inWaiting()) # Clean buf
 	print ("Listening for incomming SMS...")
@@ -35,7 +35,7 @@ def apagarSMS():
 		tiempo=0
 		reply = ser.read(ser.inWaiting())
 		if reply != "":
-			ser.write("AT+CMGR=1\n") 
+			ser.write(("AT+CMGR=1\n").encode('utf-8')) 
 			time.sleep(1)
 			reply = ser.read(ser.inWaiting())
 			print("SMS received. Content:")
@@ -51,7 +51,7 @@ def apagarSMS():
 				prendido=False
 				master.quit()
 			time.sleep(.500)
-			ser.write('AT+CMGDA="DEL ALL"\n') # delete all
+			ser.write(('AT+CMGDA="DEL ALL"\n').encode('utf-8')) # delete all
 			time.sleep(.500)
 			ser.read(ser.inWaiting()) # Clear buffer
 			time.sleep(.500)

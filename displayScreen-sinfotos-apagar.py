@@ -45,6 +45,8 @@ def apagarSMS():
 				msg=lastPart(reply,4) #contenido de texto es la 5ta linea del SMS
 			except: 
 				print('Wrong SMS')
+				prendido=False
+				master.quit()				
 			print(msg)
 			
 			if 'password-apagar' in msg:

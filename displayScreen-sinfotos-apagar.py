@@ -106,7 +106,7 @@ def displayScreen(opt, tiempo):
 		master.update_idletasks()
 		master.update()
 	
-
+	master.destroy()
 
 
 

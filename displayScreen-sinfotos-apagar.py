@@ -29,7 +29,8 @@ def apagarSMS():
 	time.sleep(1)
 	reply = ser.read(ser.inWaiting()) # Clean buf
 	print ("Listening for incomming SMS...")
-	while True:
+	prendido=True
+	while prendido :
 		msg=''
 		tiempo=0
 		reply = ser.read(ser.inWaiting())
@@ -47,6 +48,7 @@ def apagarSMS():
 			print(msg)
 			
 			if 'password-apagar' in msg:
+				prendido=False
 				master.destroy()
 			time.sleep(.500)
 			ser.write('AT+CMGDA="DEL ALL"\n') # delete all

@@ -1,12 +1,11 @@
-from tkinter import *
+from Tkinter import *
 #from tkinter import messagebox
 import argparse
 import serial
 import os, time, sys
 import datetime
 
-
-master = Tk()
+destroy=False
 
 def lastPart(str,i):
     l=str.split('\n',20)
@@ -23,9 +22,9 @@ def apagarSMS():
 	#setup()
 	##ser.write('AT'+'\r\n')
 	##time.sleep(10)
-	ser.write(('AT+CMGF=1'+'\r\n').encode('utf-8')) # set to text mode
+	ser.write('AT+CMGF=1'+'\r\n') # set to text mode
 	time.sleep(1)
-	ser.write(('AT+CMGDA="DEL ALL"\n').encode('utf-8')) # delete all SMS
+	ser.write('AT+CMGDA="DEL ALL"\n') # delete all SMS
 	time.sleep(1)
 	reply = ser.read(ser.inWaiting()) # Clean buf
 	print ("Listening for incomming SMS...")
@@ -35,7 +34,7 @@ def apagarSMS():
 		tiempo=0
 		reply = ser.read(ser.inWaiting())
 		if reply != "":
-			ser.write(("AT+CMGR=1\n").encode('utf-8')) 
+			ser.write("AT+CMGR=1\n") 
 			time.sleep(1)
 			reply = ser.read(ser.inWaiting())
 			print("SMS received. Content:")
@@ -45,21 +44,22 @@ def apagarSMS():
 				msg=lastPart(reply,4) #contenido de texto es la 5ta linea del SMS
 			except: 
 				print('Wrong SMS')
-				prendido=False
-				master.quit()				
+				#prendido=False
+				#master.quit()				
 			print(msg)
 			
 			if 'password-apagar' in msg:
 				prendido=False
-				master.quit()
+				#master.quit()
+				destroy=True
 			time.sleep(.500)
-			ser.write(('AT+CMGDA="DEL ALL"\n').encode('utf-8')) # delete all
+			ser.write('AT+CMGDA="DEL ALL"\n') # delete all
 			time.sleep(.500)
 			ser.read(ser.inWaiting()) # Clear buffer
 			time.sleep(.500)
 
 def displayScreen(opt, tiempo):
-
+	master = Tk()
 	#A=master.winfo_screenwidth()
 	#B=master.winfo_screenheight()
 	master.geometry("100x100+8+153")
@@ -98,6 +98,7 @@ def displayScreen(opt, tiempo):
 	master.configure(background=color)
 	l1=Label(master, text=txt,fg=fgcolor, font=(None,sizefont),bg=color).place(relx=0.5,rely=0.5,anchor=CENTER)
 	master.after(int(1000), lambda: apagarSMS())
+	if destroy: master.quit()
 	master.mainloop()
 	master.destroy()
 
